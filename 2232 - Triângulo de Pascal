@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int roda,valor,triangulo[32][32];
+ 
+
+  triangulo[0][0] = 1;
+  scanf("%d",&roda);
+ 
+  for(int i=0;i<roda;i++)
+    {
+       long long int resp = 1;
+        scanf("%d",&valor);
+        for(int j=1;j<valor;j++)
+          {
+            for(int k=0; k <= j;k++)
+              {
+                if(k == 0 || k == j)
+                {
+                   triangulo[j][k] = 1;
+                    resp++;
+                }
+                
+                else
+                {
+                  triangulo[j][k] = triangulo[j-1][k] + triangulo[j-1][k-1];
+                  resp += triangulo[j][k];
+                }
+                  
+              }
+          }
+
+      printf("%lld\n",resp);
+    }
+
+}
